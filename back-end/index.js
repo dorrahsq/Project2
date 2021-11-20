@@ -9,9 +9,12 @@ const app = express();
 
 dotenv.config();
 
+const usersRouter = require("./routers/routs/users");
+
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+app.use("/users", usersRouter);
 
 const PORT = process.env.PORT || 5000;
 
