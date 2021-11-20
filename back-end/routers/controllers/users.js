@@ -1,6 +1,6 @@
 const usersModel = require("../../db/models/userSchema");
 
-//get all users
+//get all users 
 const getAllUsers = (req, res) => {
   usersModel
     .find({})
