@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
+
 const Header = () => {
   const logOut = () => {
     localStorage.clear();
@@ -20,11 +22,11 @@ const Header = () => {
           </li>
 
           <li>
-            <Link to="/photos">Photos</Link>
+            <Link to="/photos">ِexplore</Link>
           </li>
 
           <li>
-            <Link to="/profile">my Profile</Link>
+            <Link to="/profile"> my Profile</Link>
           </li>
 
           <li>

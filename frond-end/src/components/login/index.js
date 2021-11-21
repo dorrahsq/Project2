@@ -50,7 +50,8 @@ const Login = () => {
           }
         }}
       >
-        log in now
+        {/* هنا كانت المشكلة لما يسجل يطلع راوت اللوق ان مايتغير وكذا حليتها  */}
+        <Link to="/"> log in now </Link>
       </button>
       <div>{message} </div>
     </>
