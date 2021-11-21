@@ -1,0 +1,7 @@
+.photosContener{
+    margin: 0 20px;
+}
+
+.photo:hover{
+    cursor: pointer;
+}
