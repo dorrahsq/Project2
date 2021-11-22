@@ -79,7 +79,7 @@ const deletePost = (req, res) => {
 // };
 //another way
 const getUserPosts = (req, res) => {
-  const { postedBy } = req.body;
+  const { postedBy } = req.query;
   postsModel
     .find({})
     .populate("postedBy")
@@ -89,7 +89,6 @@ const getUserPosts = (req, res) => {
     .exec(function (err, posts) {
       if (err) return handleError(err);
       res.json(posts);
-      // console.log(posts[0].img);
     });
 };
 

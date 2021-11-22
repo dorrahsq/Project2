@@ -4,7 +4,7 @@ const {
   unlikePost,
   likeCount,
   userLikes,
-  getAllLikes
+  getAllLikes,
 } = require("./../controllers/likes");
 
 const likesRouter = express.Router();
@@ -14,5 +14,6 @@ likesRouter.delete("/unlike", unlikePost);
 likesRouter.get("/count", likeCount);
 likesRouter.get("/userLikes", userLikes);
 likesRouter.get("/allLikes", getAllLikes);
+
 
 module.exports = likesRouter;

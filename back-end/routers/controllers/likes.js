@@ -1,16 +1,5 @@
 const likesModel = require("../../db/models/likeSchema");
 
-//check if the user like this post ot not
-// const likeCheck = (req, res) => {
-//   const { by, onPost } = req.body;
-//   const found = likesModel.findOne({ by, onPost }, function (err) {
-//     if (err) return handleError(err);
-//   });
-// if(found){
-
-// }
-// };
-
 //get all likes
 const getAllLikes = (req, res) => {
   likesModel
@@ -90,9 +79,17 @@ const userLikes = (req, res) => {
     });
 };
 
+//get all post in hashtag sorted by likes
+
 // Display more likes
 
 // Display more likes for one tag ( winner in this week)
 //we take the hashtag here and ...........
 
-module.exports = { likePost, unlikePost, likeCount, userLikes, getAllLikes };
+module.exports = {
+  likePost,
+  unlikePost,
+  likeCount,
+  userLikes,
+  getAllLikes,
+};
