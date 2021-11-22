@@ -23,7 +23,7 @@ const Photos = () => {
   const goInside = (id) => {
     navigate(`/posts/${id}`);
   };
-
+  
   return (
     <div className="photosContener">
       {posts ? (

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BASE_URL = "http://localhost:5000";
 
 const Login = () => {
+  let navigate = useNavigate();
   const [users, setusers] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,19 +40,20 @@ const Login = () => {
       <button
         onClick={() => {
           let found = users.find((ele) => {
-            return ele.email == email;
+            return ele.email == email && ele.password == password;
           });
           if (found) {
+            //navigate first
+            navigate(`/`);
             localStorage.setItem("userId", JSON.stringify(found._id));
             console.log("your in ");
             window.location.reload(false);
           } else {
-            setMessage(`you don't have an acount, sign up and join us `); //link to sign up component
+            setMessage(`The email address or password is incorrect `); //link to sign up component
           }
         }}
       >
-        {/* هنا كانت المشكلة لما يسجل يطلع راوت اللوق ان مايتغير وكذا حليتها  */}
-        <Link to="/"> log in now </Link>
+        log in now
       </button>
       <div>{message} </div>
     </>

@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const Header = () => {
+  let navigate = useNavigate();
   const logOut = () => {
+    navigate(`/`);
     localStorage.clear();
     window.location.reload(false);
     console.log("log out");
@@ -17,9 +19,9 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link to="/search">Search</Link>
-          </li>
+          </li> */}
 
           <li>
             <Link to="/posts">ِexplore</Link>
