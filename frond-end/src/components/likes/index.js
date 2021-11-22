@@ -1,8 +1,6 @@
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -25,7 +23,8 @@ const Likes = () => {
   };
 
   const goInside = (id) => {
-    // navigate(`/posts/${id}`);
+    console.log("post id " + id);
+    navigate(`/posts/${id}`);
   };
 
   return (
@@ -34,7 +33,14 @@ const Likes = () => {
         <>
           {userLikes.map((ele) => {
             console.log(ele.onPost.img);
-            return <img src={ele.onPost.img} />;
+            return (
+              <img
+                onClick={() => {
+                  goInside(ele.onPost._id);
+                }}
+                src={ele.onPost.img}
+              />
+            );
           })}
         </>
       ) : (
