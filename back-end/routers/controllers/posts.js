@@ -4,7 +4,8 @@ const postsModel = require("../../db/models/postSchema");
 const getAllPosts = (req, res) => {
   postsModel
     .find({})
-    .sort({ date: 1 }).populate("postedBy")
+    .sort({ date: 1 })
+    .populate("postedBy")
     .then((result) => {
       res.send(result);
     })
@@ -15,10 +16,12 @@ const getAllPosts = (req, res) => {
 
 //get all post in hashtag
 const getAllPostsHash = (req, res) => {
-  const { hashtags } = req.body;
+  const { hashtags } = req.query;
+  console.log(hashtags);
   postsModel
     .find({ hashtags })
     .sort({ date: 1 })
+    .exec()
     .then((result) => {
       res.send(result);
     })
