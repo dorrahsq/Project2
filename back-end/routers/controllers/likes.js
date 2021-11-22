@@ -1,5 +1,28 @@
 const likesModel = require("../../db/models/likeSchema");
 
+//check if the user like this post ot not
+// const likeCheck = (req, res) => {
+//   const { by, onPost } = req.body;
+//   const found = likesModel.findOne({ by, onPost }, function (err) {
+//     if (err) return handleError(err);
+//   });
+// if(found){
+
+// }
+// };
+
+//get all likes
+const getAllLikes = (req, res) => {
+  likesModel
+    .find({})
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
 // like post
 const likePost = (req, res) => {
   const { by, onPost } = req.body;
@@ -19,7 +42,7 @@ const likePost = (req, res) => {
 
 //unlike post
 const unlikePost = (req, res) => {
-  const { by, onPost } = req.body;
+  const { by, onPost } = req.query;
   likesModel.deleteOne({ by, onPost }, function (err) {
     if (err) return handleError(err);
   });
@@ -36,7 +59,7 @@ const unlikePost = (req, res) => {
 //Display count of likes on one post
 const likeCount = (req, res) => {
   //we take post id then count how much users there
-  const { onPost } = req.body;
+  const { onPost } = req.query;
   likesModel
     .find({ onPost })
     .count()
@@ -50,7 +73,8 @@ const likeCount = (req, res) => {
 
 // Display user’s likes on fav part
 const userLikes = (req, res) => {
-  const { by } = req.body;
+  //note: the front cant take from the body if its get or delete
+  const { by } = req.query;
   //we take user id and then populate to take all post
   likesModel
     .find({})
@@ -71,4 +95,4 @@ const userLikes = (req, res) => {
 // Display more likes for one tag ( winner in this week)
 //we take the hashtag here and ...........
 
-module.exports = { likePost, unlikePost, likeCount, userLikes };
+module.exports = { likePost, unlikePost, likeCount, userLikes, getAllLikes };
