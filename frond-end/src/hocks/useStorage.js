@@ -5,20 +5,9 @@ import axios from "axios";
 const BASE_URL = "http://localhost:5000";
 
 const UseStorage = (props) => {
-  console.log(
-    "img",
-    props.img,
-    "describe",
-    props.describe,
-    props.hashtags,
-    props.postedBy
-  );
-  // const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState(null);
-  const [tryy, setTryy] = useState("");
 
   useEffect(() => {
-    // console.log("HERE");
     const storageRef = porjectSto.ref(props.img.name);
     storageRef.put(props.img).on("state_changed", async () => {
       const URL = await storageRef.getDownloadURL();
@@ -26,7 +15,6 @@ const UseStorage = (props) => {
     });
   }, []);
   const postIt = () => {
-    console.log(url);
     const obj = {
       img: url,
       describe: props.describe,
@@ -39,6 +27,7 @@ const UseStorage = (props) => {
       .catch((err) => {
         console.error(err);
       });
+    window.location.reload(false);
   };
 
   return (

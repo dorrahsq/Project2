@@ -25,25 +25,24 @@ const Photo = () => {
     setPhoto(posts.data.find((ele) => ele._id == id));
     const onPostt = posts.data.find((ele) => ele._id == id);
     const onPost = onPostt._id;
-    // console.log(onPost);
 
     //likes count
     const likesCount = await axios.get(
       `${BASE_URL}/likes/count?onPost=${onPost}`
     );
-    // console.log(likesCount.data);
+
     setLikesCount(likesCount.data);
 
     //check if the user like this post or not
     const likes = await axios.get(`${BASE_URL}/likes/allLikes`);
-    // console.log(likes.data);
+
     let userId = JSON.parse(localStorage.getItem("userId"));
     setuserid(userId);
 
     const elm = likes.data.find(
       (ele) => ele.by == userId && ele.onPost == onPost
     );
-    console.log("elm", elm);
+
     setFound(elm);
     if (elm) {
       setText(<IoHeartSharp />);
@@ -57,7 +56,6 @@ const Photo = () => {
       by: userid,
       onPost: photoId,
     };
-    console.log("found", found);
 
     if (found) {
       axios
@@ -90,6 +88,8 @@ const Photo = () => {
       .catch((err) => {
         console.error(err);
       });
+    navigate(`/profile/${userid}`);
+
   };
 
   const downloadImage = (url) => {

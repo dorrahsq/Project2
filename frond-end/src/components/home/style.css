@@ -1,53 +1,51 @@
-.main{
-  margin-top: 100px;  
+.main {
+  margin-top: 100px;
   margin-bottom: 500px;
   text-align: center;
 }
 
-.winner{
-    font-size: 70px;
-    font-family: 'Great Vibes', cursive;
-    text-align: center;
-    margin-bottom: 45px;
+.winner {
+  font-size: 70px;
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  margin-bottom: 45px;
 }
 
-.hash{
-    /* font-weight: bold; */
-    font-family:cursive
+.hash {
+  font-family: cursive;
 }
 
-.bg{
-    color: rgb(0, 0, 0);
-    background-color: rgba(128, 128, 128, 0.267);
-    position:absolute;
-   top: 880px;
-    z-index: -1;
-    width: 76% ; 
-    height: 300px;
-    font-size: 60px;
-    padding-left: 20px;
-    font-family: 'Great Vibes', cursive;
+.bg {
+  color: rgb(0, 0, 0);
+  background-color: rgba(128, 128, 128, 0.267);
+  position: absolute;
+  top: 880px;
+  z-index: -1;
+  width: 76%;
+  height: 300px;
+  font-size: 60px;
+  padding-left: 20px;
+  font-family: "Great Vibes", cursive;
 }
-.imgContener{
-    width: 300px;
-    margin-bottom: 40px;
-    
+.imgContener {
+  width: 300px;
+  margin-bottom: 40px;
 }
-.imgContener img{
-height: 400px;
-margin-left: 750px;
-transform: rotate(10deg);
-border-radius: 8px;
-border: 5px solid rgba(255, 255, 255, 0.308);
-transition: 0.5s ease;
+.imgContener img {
+  height: 400px;
+  margin-left: 750px;
+  transform: rotate(10deg);
+  border-radius: 8px;
+  border: 5px solid rgba(255, 255, 255, 0.308);
+  transition: 0.5s ease;
 }
-.why{
-font-size: 20px;
-display: block;
-font-family:cursive;
-margin-right: 400px;
+.why {
+  font-size: 20px;
+  display: block;
+  font-family: cursive;
+  margin-right: 400px;
 }
-.imgContener img:hover{
-cursor: pointer;
-transform: scale(1.25) perspective(1px);
+.imgContener img:hover {
+  cursor: pointer;
+  transform: scale(1.25) perspective(1px);
 }

@@ -10,15 +10,13 @@
   padding: 0rem 0;
   text-align: center;
   width: 100%;
-  position:absolute;
-  margin-top: 40px ;
-  /* bottom: 0; */
+  position: absolute;
+  margin-top: 40px;
 }
 
 .footers ul li a {
   color: white;
   text-decoration: none;
-  /* font-family: "Zen Kurenaido", sans-serif; */
   font-family: "Dosis", sans-serif;
   font-size: 20px;
   color: rgb(0, 0, 0);

@@ -38,11 +38,6 @@ const Home = () => {
       setMoreLikesPostt(moreLikesPost);
       setPost(ele);
     }
-
-    console.log(` max ${max} the post id ${moreLikesPost}`);
-    console.log(
-      ` post with id : ${ele._id}   have likes count  ${likesCount.data}`
-    );
   };
 
   const goInside = (id) => {
@@ -54,13 +49,14 @@ const Home = () => {
 
       {posts ? (
         <>
-          <Fade>
-            <div className="winner">
-              Winner post in this week <span className="hash">#COFFE</span>
-            </div>
+          <div className="winner">
+            Winner post in this week <span className="hash">#COFFE</span>
+          </div>
+          {/* <Fade> */}
 
-            <div className="bg">
-              why?
+          <div className="bg">
+            why?
+            <Fade>
               <span className="why">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque vitae iaculis leo. Cras interdum, risus id tempor
@@ -71,8 +67,9 @@ const Home = () => {
                 Proin at porta erat. Curabitur a risus nec odio sollicitudin
                 consectetur. Pellentesque posuere tellus et auctor elementum{" "}
               </span>
-            </div>
-
+            </Fade>
+          </div>
+          <Fade>
             <div className="imgContener">
               <img
                 src={posts.img}
@@ -82,6 +79,7 @@ const Home = () => {
               />
             </div>
           </Fade>
+          {/* </Fade> */}
         </>
       ) : (
         <h1>loading ...</h1>

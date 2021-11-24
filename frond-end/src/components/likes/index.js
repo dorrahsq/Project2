@@ -23,7 +23,6 @@ const Likes = () => {
   };
 
   const goInside = (id) => {
-    console.log("post id " + id);
     navigate(`/posts/${id}`);
   };
 
@@ -32,7 +31,6 @@ const Likes = () => {
       {userLikes ? (
         <>
           {userLikes.map((ele) => {
-            console.log(ele.onPost.img);
             return (
               <img
                 onClick={() => {

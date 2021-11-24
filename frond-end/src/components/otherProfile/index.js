@@ -22,12 +22,11 @@ const OtherProfile = () => {
   const getAllUsers = async () => {
     const users = await axios.get(`${BASE_URL}/users/`);
     setuser(users.data.find((ele) => ele._id == id));
-    console.log(users.data.find((ele) => ele._id == id));
 
     const userPosts = await axios.get(
       `${BASE_URL}/posts/userPost?postedBy=${id}`
     );
-    console.log(userPosts.data);
+
     setUserPostss(userPosts.data);
   };
   const goInside = (id) => {
@@ -44,7 +43,6 @@ const OtherProfile = () => {
               <h3 className="name"> {user.username} </h3>
               <p className="bio">
                 {user.Bio}
-                {/* <button>change </button> */}
               </p>
             </div>
           </>

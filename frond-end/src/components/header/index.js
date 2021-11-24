@@ -26,9 +26,6 @@ const Header = () => {
             </Link>
           </li>
           <span className="spann">/</span>
-          {/* <li>
-            <Link to="/search">Search</Link>
-          </li> */}
 
           <li className="lie">
             <Link className="link" to="/posts">

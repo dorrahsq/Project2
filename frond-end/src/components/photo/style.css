@@ -78,18 +78,15 @@
   border-radius: 4px;
   text-decoration: none;
   color: black;
-  /* transition: 0.5s ease; */
 }
 
 .clickDown:hover {
-  /* transform: scale(1.25) perspective(1px); */
   color: rgba(70, 27, 50, 0.952);
 }
 
 .deleteBtnContener {
   text-align: left;
   margin-left: 350px;
-  /* margin-bottom: 30px; */
 }
 
 .deleteBtn {
