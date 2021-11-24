@@ -27,10 +27,10 @@ const Photos = () => {
   return (
     <div className="photosContener">
       {posts ? (
-        <ImageList variant="masonry" cols={3} gap={8}>
+        <ImageList variant="masonry" cols={5} gap={10}>
           {posts.map((item) => (
             <ImageListItem key={item.img}>
-              <img
+              <img 
                 onClick={() => {
                   goInside(item._id);
                 }}

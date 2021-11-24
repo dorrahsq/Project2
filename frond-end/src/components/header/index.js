@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
+import { BsHeartFill } from "react-icons/bs";
+import logoo from "../../imges/logoo.jpeg";
 
 const Header = () => {
   let navigate = useNavigate();
@@ -15,27 +17,42 @@ const Header = () => {
     <>
       <div className="nav">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
+          <li id="logo">
+            <img className="logoo" src={logoo} />
           </li>
-
+          <li className="lie">
+            <Link className="link" to="/">
+              Home
+            </Link>
+          </li>
+          <span className="spann">/</span>
           {/* <li>
             <Link to="/search">Search</Link>
           </li> */}
 
-          <li>
-            <Link to="/posts">ِexplore</Link>
+          <li className="lie">
+            <Link className="link" to="/posts">
+              explore
+            </Link>
           </li>
-
-          <li>
-            <Link to="/profile"> my Profile</Link>
+          <span className="spann">/</span>
+          <li className="lie">
+            <Link className="link" to="/profile">
+              {" "}
+              my Profile
+            </Link>
           </li>
-
-          <li>
-            <Link to="/mylikes"> likes</Link>
+          <li id="heart">
+            <Link className="link" to="/mylikes">
+              {" "}
+              <BsHeartFill />{" "}
+            </Link>
           </li>
-          <li>
-            <p onClick={logOut}> log out </p>
+          <li id="logOut">
+            <p className="link" onClick={logOut}>
+              {" "}
+              log out{" "}
+            </p>
           </li>
         </ul>
       </div>

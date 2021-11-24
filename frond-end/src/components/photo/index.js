@@ -1,10 +1,14 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./style.css";
+import { IoHeartSharp, IoHeartOutline } from "react-icons/io5";
+import { saveAs } from "file-saver";
 
 const BASE_URL = "http://localhost:5000";
 
 const Photo = () => {
+  let navigate = useNavigate();
   const id = useParams().id;
   const [likesCount, setLikesCount] = useState();
   const [photo, setPhoto] = useState("");
@@ -42,9 +46,9 @@ const Photo = () => {
     console.log("elm", elm);
     setFound(elm);
     if (elm) {
-      setText("Remove from Favorite");
+      setText(<IoHeartSharp />);
     } else {
-      setText("Add to Favorite");
+      setText(<IoHeartOutline />);
     }
   };
 
@@ -74,23 +78,96 @@ const Photo = () => {
     getAllPosts();
   };
 
+  const person = (userId) => {
+    navigate(`/profile/${userId}`);
+  };
+  const deletePost = (idd) => {
+    const _id = idd;
+    console.log(idd);
+    axios
+      .delete(`${BASE_URL}/posts/delete?_id=${_id}`)
+      .then(() => console.log(" removed secc.... "))
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const downloadImage = (url) => {
+    saveAs(url, "image.jpg"); // Put your image url here.
+  };
+
   return (
     <>
       {photo ? (
         <>
-          <img src={photo.img} alt="" />
-          <p> {photo.describe}</p>
-          <p> published: {photo.date}</p>
-          <p> hashtags {photo.hashtags}</p>
-          <p> postedBy {photo.postedBy.username}</p>
-          <button
-            onClick={() => {
-              Fav(photo._id);
-            }}
-          >
-            {text}
-          </button>
-          <p> likes {likesCount}</p>
+          {<img className="imgg" src={photo.postedBy.img} />}
+          <div className="photoContener">
+            <p className="postedBy">
+              <span
+                onClick={() => {
+                  person(photo.postedBy._id);
+                }}
+              >
+                {photo.postedBy.username}
+              </span>{" "}
+              <span className="hovver">
+                <span
+                  className="clickDown"
+                  onClick={() => {
+                    downloadImage(photo.img);
+                  }}
+                >
+                  {" "}
+                  click here to download{" "}
+                </span>
+              </span>
+            </p>
+            <img src={photo.img} alt="" />
+            <p className="left">
+              <button
+                className="heartBtn"
+                onClick={() => {
+                  Fav(photo._id);
+                }}
+              >
+                {text}
+              </button>
+              <span className="count"> {likesCount} </span>
+              <span className="date">
+                {" "}
+                published: {photo.date.slice(0, 10)}
+              </span>
+            </p>
+            <p className="prgg">
+              <span
+                className="username"
+                onClick={() => {
+                  person(photo.postedBy._id);
+                }}
+              >
+                {" "}
+                {photo.postedBy.username}{" "}
+              </span>
+
+              {photo.describe}
+              <span className="hashh"> #{photo.hashtags} </span>
+            </p>
+
+            {userid == photo.postedBy._id ? (
+              <div className="deleteBtnContener">
+                <button
+                  onClick={() => {
+                    deletePost(photo._id);
+                  }}
+                  className="deleteBtn"
+                >
+                  Delete this post
+                </button>
+              </div>
+            ) : (
+              console.log("f")
+            )}
+          </div>
         </>
       ) : (
         <h1>loading ...</h1>

@@ -1,0 +1,33 @@
+.bio {
+  margin-top: 20px;
+}
+
+.othersImg {
+  margin-top: 100px;
+  width: 200px;
+  border-radius: 25%;
+}
+.contenerImg {
+  text-align: center;
+}
+
+.name {
+  margin-top: 6px;
+  color: rgb(46, 46, 46);
+}
+
+.imgesC {
+  display: inline-block;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.imggg {
+  width: 250px;
+  margin: 6px;
+  border-radius: 6px;
+}
+
+.newPostBtn {
+  text-align: center;
+  margin-bottom: 10px;
+}

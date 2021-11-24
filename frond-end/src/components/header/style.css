@@ -1,4 +1,50 @@
-.nav ul li {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.lie {
   display: inline-block;
-  margin: 0 6%;
+  margin: 1% 6%;
+}
+
+#logo {
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 20%;
+}
+#heart {
+  display: inline-block;
+  margin-left: 14%;
+}
+
+#logOut {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 50px;
+}
+#logOut:hover {
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.788);
+  font-size: 23px;
+  font-family: "Dosis", sans-serif;
+}
+
+.link:hover {
+  color: black;
+}
+
+.spann {
+  color: rgba(0, 0, 0, 0.842);
+  font-weight: 200;
+}
+
+.logoo {
+  height: 40px;
+  position: absolute;
+  top: 13px;
 }

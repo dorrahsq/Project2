@@ -7,6 +7,8 @@ import Header from "./components/header";
 import Home from "./components/home";
 import Likes from "./components/likes";
 import Login from "./components/login";
+import MyPost from "./components/myPost";
+import OtherProfile from "./components/otherProfile";
 import Photo from "./components/photo";
 import Photos from "./components/photos";
 import Profile from "./components/profile";
@@ -26,6 +28,9 @@ function App() {
             <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/mylikes" element={<Likes />} />
             <Route exact path="/posts/:id" element={<Photo />} />
+            <Route exact path="/profile/:id" element={<OtherProfile />} />
+            <Route exact path="/myPosts/:id" element={<MyPost />} />
+          
           </Routes>
 
           <Footer />
