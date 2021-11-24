@@ -51,7 +51,7 @@ const createPost = (req, res) => {
 };
 //delete post
 const deletePost = (req, res) => {
-  const { _id } = req.body;
+  const { _id } = req.query;
   postsModel.deleteOne({ _id }, function (err) {
     if (err) return handleError(err);
   });
