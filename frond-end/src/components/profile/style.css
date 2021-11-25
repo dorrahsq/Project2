@@ -42,3 +42,37 @@
   text-align: center;
   margin-bottom: 10px;
 }
+.noPosted{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  font-family: "Dosis", sans-serif;
+}
+/* .modal{
+  font-family: "Dosis", sans-serif;
+
+} */
+.box{
+  border-radius: 10px;
+}
+.fkoe{
+  color: black;
+  margin-left: 175px;
+  margin-bottom: 20px;
+}
+
+.newPostText{
+  font-family: "Dosis", sans-serif; 
+  font-size: 35px;
+}
+.newPostInput{
+  display: block;
+  margin: 0px 0px 0px 90px;
+  border-style: none;
+  padding: 5px;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: "Dosis", sans-serif;
+  border-bottom: 0.5px solid rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+}

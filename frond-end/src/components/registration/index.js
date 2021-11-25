@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+
 
 const BASE_URL = "http://localhost:5000";
 
@@ -38,8 +40,13 @@ const SignUp = () => {
 
   return (
     <>
+         {/* <img className="videoBG" src="https://images.pexels.com/photos/947785/pexels-photo-947785.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/> */}
+         <img className="videoBG" src="https://images.pexels.com/photos/3846225/pexels-photo-3846225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+
+    <div className="describeItemS">
       <div className="signUpInput">
-        Sign Up
+          <span className="Logg">  Sign Up   </span>
+
         <input
           type="text"
           placeholder=" username"
@@ -61,7 +68,7 @@ const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-        <button
+        <button className="LogBtn"
           onClick={() => {
             let found = users.find((ele) => {
               return ele.email == email;
@@ -78,13 +85,15 @@ const SignUp = () => {
             }
           }}
         >
-          Sign up now
+              <BsFillArrowRightCircleFill className="goIcon"/>
+
         </button>
       </div>
-      <div>
-        already have an account? <Link to="/login">log in </Link>
+      <div className="already">
+       already have an account? <Link to="/login">log in </Link>
       </div>
       {message}
+      </div>
     </>
   );
 };

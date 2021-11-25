@@ -1,4 +1,32 @@
-.signUpInput input{
-display: flex;
+.signUpInput input {
+  display: flex;
+}
 
+.describeItemS {
+  font-family: "Dosis", sans-serif;
+  font-size: 50px;
+  color: white;
+}
+
+.describeItemS input {
+    display: block;
+    margin: 10px 0px 5px 70px;
+    border-style: none;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 3px;
+    font-family: "Dosis", sans-serif;
+    border-bottom: 0.5px solid rgb(255, 255, 255);;
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+
+.already{
+    font-size: 30px; 
+    margin-top: 20px;
+}
+
+.already{
+    margin-left: 26px;
 }

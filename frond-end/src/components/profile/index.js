@@ -24,6 +24,7 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
+
   p: 4,
 };
 
@@ -113,19 +114,20 @@ const Profile = () => {
               </Button>
             </div>
             <Modal
+              className="modal"
               open={open}
               onClose={handleClose}
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
               <div className="NewPostModel">
-                <Box sx={style}>
+                <Box sx={style} className="box">
                   <Typography
                     id="modal-modal-title"
                     variant="h6"
                     component="h2"
                   >
-                    New post
+                    <span className="newPostText"> New post </span>
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <Stack direction="row" alignItems="center" spacing={2}>
@@ -145,25 +147,27 @@ const Profile = () => {
                           aria-label="upload picture"
                           component="span"
                         >
-                          <PhotoCamera />
+                          <PhotoCamera className="fkoe" />
                         </IconButton>
                       </label>
                     </Stack>
 
                     <input
+                      className="newPostInput"
                       onChange={(e) => {
                         setDescribe(e.target.value);
                       }}
                       type="text"
-                      placeholder="disc"
+                      placeholder="Write a caption"
                     />
                     <br />
                     <input
+                      className="newPostInput"
                       onChange={(e) => {
                         setTag(e.target.value);
                       }}
                       type="text"
-                      placeholder="tags"
+                      placeholder="hashtag"
                     />
                     {img ? (
                       <div>
@@ -225,7 +229,7 @@ const Profile = () => {
                 </ImageList>
               </div>
             ) : (
-              <p>no posted yet </p>
+              <p className="noPosted">no posted yet ): </p>
             )}
           </>
         ) : (
@@ -235,24 +239,30 @@ const Profile = () => {
 
       <div>
         {userLikes && alignment == "likes" ? (
-          <div className="allImg">
-            {console.log(userLikes)}
-            <ImageList variant="masonry" cols={3} gap={10}>
-              {userLikes.map((item) => (
-                <ImageListItem key={item.onPost.img}>
-                  <img
-                    onClick={() => {
-                      goInside(item.onPost._id);
-                    }}
-                    className="photo"
-                    src={`${item.onPost.img}?w=248&fit=crop&auto=format`}
-                    srcSet={`${item.onPost.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
-          </div>
+          <>
+            {userLikes.length ? (
+              <div className="allImg">
+                {console.log(userLikes)}
+                <ImageList variant="masonry" cols={3} gap={10}>
+                  {userLikes.map((item) => (
+                    <ImageListItem key={item.onPost.img}>
+                      <img
+                        onClick={() => {
+                          goInside(item.onPost._id);
+                        }}
+                        className="photo"
+                        src={`${item.onPost.img}?w=248&fit=crop&auto=format`}
+                        srcSet={`${item.onPost.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                        loading="lazy"
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </div>
+            ) : (
+              <p className="noPosted">You didn't like any post yet ): </p>
+            )}
+          </>
         ) : (
           // <h1>loading ...</h1>
           console.log("d")

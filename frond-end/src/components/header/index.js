@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import { BsHeartFill } from "react-icons/bs";
 import logoo from "../../imges/logoo.jpeg";
-
+import { AiOutlineLogout } from "react-icons/ai";
+import { SiGooglephotos } from "react-icons/si";
 const Header = () => {
   let navigate = useNavigate();
   const logOut = () => {
@@ -17,9 +18,14 @@ const Header = () => {
     <>
       <div className="nav">
         <ul>
-          {/* <li id="logo">
-            <img className="logoo" src={logoo} />
+          {/* <li className="lie link">
+            FRAME IT
           </li> */}
+          <li className="lie1">
+            <Link className="link" to="/" id="framIt">
+              <SiGooglephotos />
+            </Link>
+          </li>
           <li className="lie" id="homeNav">
             <Link className="link" to="/">
               Home
@@ -29,14 +35,14 @@ const Header = () => {
 
           <li className="lie">
             <Link className="link" to="/posts">
-              explore
+              Explore
             </Link>
           </li>
           {/* <span className="spann">/</span> */}
           <li id="myPro" className="lie">
             <Link className="link" to="/profile">
               {" "}
-              my Profile
+              Profile
             </Link>
           </li>
           {/* <li className="lie">
@@ -47,7 +53,7 @@ const Header = () => {
           <li id="logOut">
             <p className="link" onClick={logOut}>
               {" "}
-              log out{" "}
+              <AiOutlineLogout />
             </p>
           </li>
         </ul>

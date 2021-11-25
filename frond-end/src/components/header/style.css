@@ -9,16 +9,22 @@
   display: inline-block;
   margin: 1% 3%;
 }
-
-#logo {
+.lie1{
+  
+  font-family: 'Allura', cursive;
+  list-style: none;
+  /* display: inline-block; */
+  /* margin: 1% 0; */
+}
+/* #logo {
   display: inline-block;
   margin-left: 50px;
   margin-right: 20%;
-}
+} */
 
 #logOut {
   display: inline-block;
-  margin-left: 54%;
+  margin-left: 50%;
   /* margin-right: 50px; */
 }
 #logOut:hover {
@@ -48,5 +54,12 @@
 }
 
 #homeNav {
-  margin-left: 100px;
+  margin-left: 230px;
+}
+
+#framIt{
+  position: absolute;
+  font-family: 'Allura', cursive;
+  top:21px;
+  margin-left: 60px;
 }
