@@ -1,14 +1,56 @@
 .main {
-  margin-top: 100px;
-  margin-bottom: 500px;
-  text-align: center;
+  margin-top: 200px;
+  margin-left: 100px;
+  margin-right: 650px;
+  /* margin-bottom: 500px; */
+  font-size: 100px;
+  /* font-family: cursive; */
+
+  /* font-family: 'Roboto Condensed', sans-serif; */
+  font-family: 'Bangers', cursive;
+
+  font-weight:lighter;
 }
+
+.shared {
+  margin-left: 100px;
+  font-size: 40px;
+  font-family: 'Acme', sans-serif;
+
+  /* margin-bottom: 50px; */
+}
+.exploreDiv {
+  margin: 20px 0 280px 100px;
+}
+
+.exploreDiv button {
+  border-style: none;
+  background-color: black;
+  color: white;
+  padding: 6px 20px;
+  border-radius: 7px;
+  font-size: 20px;
+  margin-bottom: 100px;
+  transition: 0.5s ease;
+  font-family: "Dosis", sans-serif;
+
+  /* font-family: "Lato", sans-serif; */
+}
+
+.exploreDiv button:hover {
+  transform: scale(1.25) perspective(1px);
+  cursor: pointer;
+  background-color: gray;
+}
+
 
 .winner {
   font-size: 70px;
   font-family: "Great Vibes", cursive;
   text-align: center;
   margin-bottom: 45px;
+  margin-top: 122px;
+
 }
 
 .hash {
@@ -17,15 +59,16 @@
 
 .bg {
   color: rgb(0, 0, 0);
-  background-color: rgba(128, 128, 128, 0.267);
+  background-color: rgba(30, 80, 121, 0.061);
   position: absolute;
-  top: 880px;
+  top: 1155px;
   z-index: -1;
   width: 76%;
   height: 300px;
   font-size: 60px;
   padding-left: 20px;
   font-family: "Great Vibes", cursive;
+  padding-top: 15px;
 }
 .imgContener {
   width: 300px;
@@ -48,4 +91,78 @@
 .imgContener img:hover {
   cursor: pointer;
   transform: scale(1.25) perspective(1px);
+}
+
+.bgDiv {
+  position: absolute;
+  top: 90px;
+  left: 780px;
+}
+.bgDivImg{
+  height: 740px;
+  width: 510px;
+  border-top-right-radius: 400px;
+  border-top-left-radius: 400px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+
+.lineInBack {
+  position: absolute;
+  height: 730px;
+  width: 530px;
+  top: 70px;
+  left: 740px;
+  border: 0.5px solid rgba(64, 64, 66, 0.233);
+  border-top-right-radius: 400px;
+  border-top-left-radius: 400px;
+  z-index: -1;
+  border-bottom-left-radius: 4px;
+}
+
+
+.line {
+	border-top: 1px solid #000000;
+	padding-top:5px;
+	padding-bottom: 5px;
+	/* margin: 40px auto 0; */
+	width: 21.5%;
+	position: absolute;
+  top: 1020px;
+  /* margin-top: 100px; */
+}
+
+.line:after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	background: #000000;
+	border-radius: 5px;
+	position: absolute;
+	top: -6px;
+}
+
+.line:after {
+	right: 0;
+}
+
+.anim{
+width: 530px;
+margin-left: 780px;
+margin-top: 30px;
+}
+
+.allImgss{
+  /* position: absolute;
+  top: 0;
+  left: 0%; */
+  /* top: 90px;
+  left: 780px; */
+
+}
+
+.homeText{
+  position: absolute;
+  top: 110px;
 }

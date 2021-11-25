@@ -13,6 +13,8 @@ import Stack from "@mui/material/Stack";
 import UseStorage from "../../hocks/useStorage";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 const style = {
   position: "absolute",
@@ -34,6 +36,8 @@ const Input = styled("input")({
 const Profile = () => {
   let navigate = useNavigate();
 
+  const [userLikes, setUserLikes] = useState();
+
   const [users, setusers] = useState([]);
   const [userProfile, setUserProfile] = useState();
   const [userPostss, setUserPostss] = useState([]);
@@ -47,6 +51,7 @@ const Profile = () => {
 
   useEffect(() => {
     getAllUsers();
+    getAllLikes();
   }, []);
 
   const getAllUsers = async () => {
@@ -61,11 +66,32 @@ const Profile = () => {
 
     setUserPostss(userPosts.data);
   };
+  const getAllLikes = async () => {
+    const likes = await axios.get(
+      `${BASE_URL}/likes/userLikes?by=${JSON.parse(
+        localStorage.getItem("userId")
+      )}`
+    );
+    setUserLikes(likes.data);
+  };
 
   const goInside = (id) => {
     navigate(`/posts/${id}`);
   };
+  const [alignment, setAlignment] = React.useState("posts");
 
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+    console.log(newAlignment);
+  };
+
+  const goToPosts = () => {
+    console.log("go post");
+  };
+
+  const goToLikes = () => {
+    console.log("goo likes");
+  };
   return (
     <>
       <div>
@@ -74,10 +100,7 @@ const Profile = () => {
             <div className="contenerImg">
               <img className="othersImg" src={userProfile.img} />
               <h3 className="name"> {userProfile.username} </h3>
-              <p className="bio">
-                {userProfile.Bio}
-
-              </p>
+              <p className="bio">{userProfile.Bio}</p>
             </div>
 
             <div className="newPostBtn">
@@ -158,6 +181,21 @@ const Profile = () => {
                 </Box>
               </div>
             </Modal>
+            <div className="toggleBtn">
+              <ToggleButtonGroup
+                color="primary"
+                value={alignment}
+                exclusive
+                onChange={handleChange}
+              >
+                <ToggleButton onClick={goToPosts} value="posts">
+                  Posts
+                </ToggleButton>
+                <ToggleButton onClick={goToLikes} value="likes">
+                  Likes
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </>
         ) : (
           <h1>loading ...</h1>
@@ -165,7 +203,7 @@ const Profile = () => {
       </div>
 
       <div>
-        {userPostss ? (
+        {userPostss && alignment == "posts" ? (
           <>
             {userPostss.length ? (
               <div className="allImg">
@@ -191,7 +229,33 @@ const Profile = () => {
             )}
           </>
         ) : (
-          <h1>loading ...</h1>
+          console.log("d")
+        )}
+      </div>
+
+      <div>
+        {userLikes && alignment == "likes" ? (
+          <div className="allImg">
+            {console.log(userLikes)}
+            <ImageList variant="masonry" cols={3} gap={10}>
+              {userLikes.map((item) => (
+                <ImageListItem key={item.onPost.img}>
+                  <img
+                    onClick={() => {
+                      goInside(item.onPost._id);
+                    }}
+                    className="photo"
+                    src={`${item.onPost.img}?w=248&fit=crop&auto=format`}
+                    srcSet={`${item.onPost.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    loading="lazy"
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          </div>
+        ) : (
+          // <h1>loading ...</h1>
+          console.log("d")
         )}
       </div>
     </>

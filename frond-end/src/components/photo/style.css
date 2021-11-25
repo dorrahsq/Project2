@@ -49,9 +49,12 @@
 }
 
 .date {
-  margin-left: 510px;
+  margin-left: 610px;
+  color: rgba(128, 128, 128, 0.644);
   display: inline-block;
   position: absolute;
+  font-family:monospace;
+  font-size: 18px;
 }
 
 .username {
@@ -71,18 +74,18 @@
   margin-left: 3px;
 }
 
-.clickDown {
+/* .clickDown {
   margin-left: 420px;
   background-color: rgba(204, 203, 203, 0.192);
   padding: 5px;
   border-radius: 4px;
   text-decoration: none;
   color: black;
-}
+} */
 
-.clickDown:hover {
+/* .clickDown:hover {
   color: rgba(70, 27, 50, 0.952);
-}
+} */
 
 .deleteBtnContener {
   text-align: left;
@@ -97,4 +100,19 @@
 
 .deleteBtn:hover {
   cursor: pointer;
+}
+
+
+.downloadIcno{
+  opacity: 0;
+  font-size: 40px;
+  position: absolute;
+  top: 140px;
+  right: 350px;
+  font-weight: 100;
+  z-index: 2;
+}
+
+.downloadIcno:hover  {
+ opacity: 1;
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/footer";
+
 import Header from "./components/header";
 // import Photos from "./components/home";
 import Home from "./components/home";
 import Likes from "./components/likes";
 import Login from "./components/login";
-import MyPost from "./components/myPost";
+
 import OtherProfile from "./components/otherProfile";
 import Photo from "./components/photo";
 import Photos from "./components/photos";
@@ -29,11 +29,9 @@ function App() {
             <Route exact path="/mylikes" element={<Likes />} />
             <Route exact path="/posts/:id" element={<Photo />} />
             <Route exact path="/profile/:id" element={<OtherProfile />} />
-            <Route exact path="/myPosts/:id" element={<MyPost />} />
-          
           </Routes>
 
-          <Footer />
+
         </>
       ) : (
         <Routes>

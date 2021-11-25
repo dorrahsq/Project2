@@ -4,6 +4,8 @@ import axios from "axios";
 import "./style.css";
 import { IoHeartSharp, IoHeartOutline } from "react-icons/io5";
 import { saveAs } from "file-saver";
+import {GrInstallOption} from "react-icons/gr";
+
 
 const BASE_URL = "http://localhost:5000";
 
@@ -89,17 +91,19 @@ const Photo = () => {
         console.error(err);
       });
     navigate(`/profile/${userid}`);
-
   };
 
   const downloadImage = (url) => {
     saveAs(url, "image.jpg"); // Put your image url here.
   };
 
+
+
   return (
     <>
       {photo ? (
         <>
+        
           {<img className="imgg" src={photo.postedBy.img} />}
           <div className="photoContener">
             <p className="postedBy">
@@ -113,12 +117,15 @@ const Photo = () => {
               <span className="hovver">
                 <span
                   className="clickDown"
-                  onClick={() => {
-                    downloadImage(photo.img);
-                  }}
+                  // onClick={() => {
+                  //   downloadImage(photo.img);
+                  // }}
                 >
-                  {" "}
-                  click here to download{" "}
+                  <a href={photo.img} target="_blank" download  className="downloadIcno">
+            
+                    <GrInstallOption />  
+                  </a>
+                
                 </span>
               </span>
             </p>
@@ -135,7 +142,7 @@ const Photo = () => {
               <span className="count"> {likesCount} </span>
               <span className="date">
                 {" "}
-                published: {photo.date.slice(0, 10)}
+                {photo.date.slice(0, 10)}
               </span>
             </p>
             <p className="prgg">
@@ -150,7 +157,11 @@ const Photo = () => {
               </span>
 
               {photo.describe}
-              <span className="hashh"> #{photo.hashtags} </span>
+              {photo.hashtags.length ? (
+                <span className="hashh"> #{photo.hashtags} </span>
+              ) : (
+                console.log("g")
+              )}
             </p>
 
             {userid == photo.postedBy._id ? (
@@ -163,6 +174,7 @@ const Photo = () => {
                 >
                   Delete this post
                 </button>
+                {/* note: i shoud send delete all likes on this post ---------------------- */}
               </div>
             ) : (
               console.log("f")

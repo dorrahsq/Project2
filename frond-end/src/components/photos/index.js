@@ -4,6 +4,7 @@ import "./style.css";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { useNavigate } from "react-router-dom";
+import Search from "../search";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -26,6 +27,7 @@ const Photos = () => {
 
   return (
     <div className="photosContener">
+      {/* <Search/> */}
       {posts ? (
         <ImageList variant="masonry" cols={5} gap={10}>
           {posts.map((item) => (

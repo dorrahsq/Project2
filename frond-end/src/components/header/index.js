@@ -17,34 +17,33 @@ const Header = () => {
     <>
       <div className="nav">
         <ul>
-          <li id="logo">
+          {/* <li id="logo">
             <img className="logoo" src={logoo} />
-          </li>
-          <li className="lie">
+          </li> */}
+          <li className="lie" id="homeNav">
             <Link className="link" to="/">
               Home
             </Link>
           </li>
-          <span className="spann">/</span>
+          {/* <span className="spann">/</span> */}
 
           <li className="lie">
             <Link className="link" to="/posts">
               explore
             </Link>
           </li>
-          <span className="spann">/</span>
-          <li className="lie">
+          {/* <span className="spann">/</span> */}
+          <li id="myPro" className="lie">
             <Link className="link" to="/profile">
               {" "}
               my Profile
             </Link>
           </li>
-          <li id="heart">
+          {/* <li className="lie">
             <Link className="link" to="/mylikes">
-              {" "}
-              <BsHeartFill />{" "}
+              My likes
             </Link>
-          </li>
+          </li> */}
           <li id="logOut">
             <p className="link" onClick={logOut}>
               {" "}

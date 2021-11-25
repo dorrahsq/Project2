@@ -36,3 +36,9 @@
   align-items: center;
   text-align: center;
 }
+
+
+.toggleBtn{
+  text-align: center;
+  margin-bottom: 10px;
+}
