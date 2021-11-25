@@ -83,9 +83,6 @@ const userLikes = (req, res) => {
 
 // Display more likes
 
-// Display more likes for one tag ( winner in this week)
-//we take the hashtag here and ...........
-
 module.exports = {
   likePost,
   unlikePost,

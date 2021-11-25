@@ -4,7 +4,7 @@ const postsModel = require("../../db/models/postSchema");
 const getAllPosts = (req, res) => {
   postsModel
     .find({})
-    .sort({ date: 1 })
+    .sort({ date: -1 })
     .populate("postedBy")
     .then((result) => {
       res.send(result);
