@@ -36,16 +36,16 @@ const createUser = (req, res) => {
 
 //update user's photo
 const updateUserPhoto = (req, res) => {
-  const { id, img } = req.body;
+  const { _id, img } = req.body;
   if (img.length) {
-    usersModel.updateOne({ id }, { $set: { img } }, function (err) {
+    usersModel.updateOne({ _id }, { $set: { img } }, function (err) {
       if (err) return handleError(err);
     });
   }
   //edge case - no img > change nothing
   else res.status(400).json("you need to insert a photo !");
   usersModel
-    .find({ id })
+    .find({ _id: id })
     .then((result) => {
       res.json(result);
     })
@@ -56,12 +56,12 @@ const updateUserPhoto = (req, res) => {
 
 //update user's Bio
 const updateUserBio = (req, res) => {
-  const { id, Bio } = req.body;
-  usersModel.updateOne({ id }, { $set: { Bio } }, function (err) {
+  const { _id, Bio } = req.body;
+  usersModel.updateOne({ _id }, { $set: { Bio } }, function (err) {
     if (err) return handleError(err);
   });
   usersModel
-    .find({ id })
+    .find({ _id })
     .then((result) => {
       res.json(result);
     })
