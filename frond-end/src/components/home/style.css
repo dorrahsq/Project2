@@ -7,15 +7,15 @@
   /* font-family: cursive; */
 
   /* font-family: 'Roboto Condensed', sans-serif; */
-  font-family: 'Bangers', cursive;
+  font-family: "Bangers", cursive;
 
-  font-weight:lighter;
+  font-weight: lighter;
 }
 
 .shared {
   margin-left: 100px;
   font-size: 40px;
-  font-family: 'Acme', sans-serif;
+  font-family: "Acme", sans-serif;
 
   /* margin-bottom: 50px; */
 }
@@ -43,14 +43,12 @@
   background-color: gray;
 }
 
-
 .winner {
   font-size: 70px;
   font-family: "Great Vibes", cursive;
   text-align: center;
   margin-bottom: 45px;
   margin-top: 122px;
-
 }
 
 .hash {
@@ -72,7 +70,7 @@
 }
 .imgContener {
   width: 300px;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 .imgContener img {
   height: 400px;
@@ -98,14 +96,13 @@
   top: 90px;
   left: 780px;
 }
-.bgDivImg{
+.bgDivImg {
   height: 740px;
   width: 510px;
   border-top-right-radius: 400px;
   border-top-left-radius: 400px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-
 }
 
 .lineInBack {
@@ -121,48 +118,46 @@
   border-bottom-left-radius: 4px;
 }
 
-
 .line {
-	border-top: 1px solid #000000;
-	padding-top:5px;
-	padding-bottom: 5px;
-	/* margin: 40px auto 0; */
-	width: 21.5%;
-	position: absolute;
+  border-top: 1px solid #000000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* margin: 40px auto 0; */
+  width: 21.5%;
+  position: absolute;
   top: 1020px;
   /* margin-top: 100px; */
 }
 
 .line:after {
-	content: "";
-	width: 10px;
-	height: 10px;
-	background: #000000;
-	border-radius: 5px;
-	position: absolute;
-	top: -6px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #000000;
+  border-radius: 5px;
+  position: absolute;
+  top: -6px;
 }
 
 .line:after {
-	right: 0;
+  right: 0;
 }
 
-.anim{
-width: 530px;
-margin-left: 780px;
-margin-top: 30px;
+.anim {
+  width: 530px;
+  margin-left: 780px;
+  margin-top: 30px;
 }
 
-.allImgss{
+.allImgss {
   /* position: absolute;
   top: 0;
   left: 0%; */
   /* top: 90px;
   left: 780px; */
-
 }
 
-.homeText{
+.homeText {
   position: absolute;
   top: 110px;
 }

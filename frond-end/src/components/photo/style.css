@@ -30,9 +30,9 @@
 
 .postedBy {
   text-align: left;
-  margin-left: 395px;
+  margin-left: 27%;
   margin-bottom: 13px;
-  margin-top: 5px;
+  margin-top: 2.5%;
 }
 
 .postedBy:hover {
@@ -43,8 +43,8 @@
   width: 35px;
   height: 35px;
   position: absolute;
-  top: 95px;
-  left: 350px;
+  top: 11.6%;
+  left: 24.2%;
   border-radius: 50%;
 }
 
@@ -53,7 +53,7 @@
   color: rgba(128, 128, 128, 0.644);
   display: inline-block;
   position: absolute;
-  font-family:monospace;
+  font-family: monospace;
   font-size: 18px;
 }
 
@@ -102,8 +102,7 @@
   cursor: pointer;
 }
 
-
-.downloadIcno{
+.downloadIcno {
   opacity: 0;
   font-size: 40px;
   position: absolute;
@@ -116,6 +115,6 @@
   /* background-color: rgba(128, 128, 128, 0.055); */
 }
 
-.downloadIcno:hover  {
- opacity: 1;
+.downloadIcno:hover {
+  opacity: 1;
 }

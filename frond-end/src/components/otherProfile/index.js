@@ -39,11 +39,11 @@ const OtherProfile = () => {
         {user ? (
           <>
             <div className="contenerImg">
-              <img className="othersImg" src={user.img} />
+              <div className="borderImg">
+                <img className="othersImg" src={user.img} />
+              </div>
               <h3 className="name"> {user.username} </h3>
-              <p className="bio">
-                {user.Bio}
-              </p>
+              <p className="bio">{user.Bio}</p>
             </div>
           </>
         ) : (

@@ -15,6 +15,8 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { RiPencilFill } from "react-icons/ri";
+import UseStorageProfile from "../../hocks/useStorageProfile";
 
 const style = {
   position: "absolute",
@@ -43,9 +45,12 @@ const Profile = () => {
   const [userProfile, setUserProfile] = useState();
   const [userPostss, setUserPostss] = useState([]);
   const [describe, setDescribe] = useState("");
+  const [bioInpu, setBioInpu] = useState(false);
   const [tag, setTag] = useState("");
   const [img, setImg] = useState("");
+  const [newBio, setNewBio] = useState("");
 
+  const [profileImg, setProfileImg] = useState("");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -93,15 +98,96 @@ const Profile = () => {
   const goToLikes = () => {
     console.log("goo likes");
   };
+
+  const changeBio = () => {
+    console.log("change Bio");
+    setBioInpu(true);
+    //then down -- bioinput? <input>
+  };
+
+  const changeBioBack = () => {
+    const obj = {
+      _id: userProfile._id,
+      Bio: newBio,
+    };
+    axios
+      .put(`${BASE_URL}/users/updateBio`, obj)
+      .then(() => console.log("done"))
+      .catch((err) => {
+        console.error(err);
+      });
+    console.log(userProfile._id);
+    window.location.reload(false);
+  };
   return (
     <>
       <div>
         {userProfile ? (
           <>
             <div className="contenerImg">
-              <img className="othersImg" src={userProfile.img} />
+              <div className="borderImg">
+                <img className="othersImg" src={userProfile.img} />
+              </div>
+
+              <label htmlFor="icon-button-file">
+                <Input
+                  accept="image/*"
+                  id="icon-button-file"
+                  type="file"
+                  onChange={(e) => {
+                    /////////
+                    setProfileImg(e.target.files[0]);
+                  }}
+                />
+
+                <IconButton
+                  color="primary"
+                  aria-label="upload picture"
+                  component="span"
+                >
+                  <RiPencilFill className="editeImg" />
+                </IconButton>
+              </label>
+
+              {profileImg ? (
+                <div>
+                  <UseStorageProfile imgP={profileImg} id={userProfile._id} />
+                </div>
+              ) : (
+                ""
+              )}
+
+              {/* <RiPencilFill className="editeImg" /> */}
               <h3 className="name"> {userProfile.username} </h3>
-              <p className="bio">{userProfile.Bio}</p>
+
+              {!bioInpu && (
+                <p className="bio">
+                  {userProfile.Bio}{" "}
+                  <RiPencilFill
+                    className="editBioIcno"
+                    onClick={() => {
+                      changeBio();
+                    }}
+                  />
+                </p>
+              )}
+
+              {bioInpu && (
+                <>
+                  <input
+                    className="inputBio"
+                    type="text"
+                    placeholder={userProfile.Bio}
+                    onChange={(e) => {
+                      setNewBio(e.target.value);
+                    }}
+                  />
+                  <button className="bioBtn" onClick={changeBioBack}>
+                    {" "}
+                    change{" "}
+                  </button>
+                </>
+              )}
             </div>
 
             <div className="newPostBtn">

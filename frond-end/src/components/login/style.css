@@ -8,18 +8,17 @@
   top: 0;
   bottom: 0;
   z-index: -1;
- 
 }
 
 .describeItem {
   font-family: "Dosis", sans-serif;
   font-size: 50px;
 }
-.Logg{
-display: block;
-margin-left: 150px;
-margin-top: 100px;
-margin-bottom: 40px;
+.Logg {
+  display: block;
+  margin-left: 150px;
+  margin-top: 100px;
+  margin-bottom: 40px;
 }
 
 .describeItem input {
@@ -34,31 +33,29 @@ margin-bottom: 40px;
   background-color: rgba(0, 0, 0, 0);
 }
 .LogBtn {
-    margin-top: 3%;
-    color: rgb(255, 255, 255);
-    padding: 6px 20px;
-    border-radius: 7px;
-    border: none;
-    font-family: "Lato", sans-serif;
-    transition: 0.5s ease;
-    background: rgba(255, 255, 255, 0);
-    list-style: none;
-    text-align: center;
-    font-weight: bold;
-    margin-left: 150px;
-    
+  margin-top: 3%;
+  color: rgb(255, 255, 255);
+  padding: 6px 20px;
+  border-radius: 7px;
+  border: none;
+  font-family: "Lato", sans-serif;
+  transition: 0.5s ease;
+  background: rgba(255, 255, 255, 0);
+  list-style: none;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 150px;
 }
 
 .LogBtn:hover {
-    cursor: pointer;
-    transform: scale(1.25) perspective(1px);
-  }
+  cursor: pointer;
+  transform: scale(1.25) perspective(1px);
+}
 
-  .goIcon{
-      color: rgb(255, 255, 255);
-      font-size: 45px;
-  }
-  .mesageL{
-      font-size: 25px;
-
-  }
+.goIcon {
+  color: rgb(0, 0, 0);
+  font-size: 45px;
+}
+.mesageL {
+  font-size: 25px;
+}
