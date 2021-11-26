@@ -79,6 +79,24 @@ const userLikes = (req, res) => {
     });
 };
 
+
+//delete all likes on post 
+const deleteAllLikes = (req, res) => {
+    const { onPost } = req.query;
+    likesModel.deleteMany({ onPost }, function (err) {
+      if (err) return handleError(err);
+    });
+    likesModel
+      .find({})
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  };
+
+
 //get all post in hashtag sorted by likes
 
 // Display more likes
@@ -89,4 +107,5 @@ module.exports = {
   likeCount,
   userLikes,
   getAllLikes,
+  deleteAllLikes
 };

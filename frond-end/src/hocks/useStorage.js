@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { porjectSto } from "../components/firebase/config";
 import axios from "axios";
+import "./style.css";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -32,14 +33,17 @@ const UseStorage = (props) => {
 
   return (
     <>
-      {url && (
+      {url ? (
         <button
+          className="PostIt"
           onClick={() => {
             postIt();
           }}
         >
           post{" "}
         </button>
+      ) : (
+        <h4>Loading ...</h4>
       )}
     </>
   );

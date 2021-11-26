@@ -4,8 +4,7 @@ import axios from "axios";
 import "./style.css";
 import { IoHeartSharp, IoHeartOutline } from "react-icons/io5";
 import { saveAs } from "file-saver";
-import {GrInstallOption} from "react-icons/gr";
-
+import { GrInstallOption } from "react-icons/gr";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -83,27 +82,34 @@ const Photo = () => {
   };
   const deletePost = (idd) => {
     const _id = idd;
+    const onPost = idd;
     console.log(idd);
+    //delete post
     axios
       .delete(`${BASE_URL}/posts/delete?_id=${_id}`)
       .then(() => console.log(" removed secc.... "))
       .catch((err) => {
         console.error(err);
       });
-    navigate(`/profile/${userid}`);
+    //delete all likes on this post
+    axios
+      .delete(`${BASE_URL}/likes/deleteLikes?onPost=${onPost}`)
+      .then(() => console.log(" removed all likes.... "))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    navigate(`/profile`);
   };
 
   const downloadImage = (url) => {
     saveAs(url, "image.jpg"); // Put your image url here.
   };
 
-
-
   return (
     <>
       {photo ? (
         <>
-        
           {<img className="imgg" src={photo.postedBy.img} />}
           <div className="photoContener">
             <p className="postedBy">
@@ -121,11 +127,14 @@ const Photo = () => {
                   //   downloadImage(photo.img);
                   // }}
                 >
-                  <a href={photo.img} target="_blank" download  className="downloadIcno">
-            
-                    <GrInstallOption />  
+                  <a
+                    href={photo.img}
+                    target="_blank"
+                    download
+                    className="downloadIcno"
+                  >
+                    <GrInstallOption />
                   </a>
-                
                 </span>
               </span>
             </p>
@@ -140,10 +149,7 @@ const Photo = () => {
                 {text}
               </button>
               <span className="count"> {likesCount} </span>
-              <span className="date">
-                {" "}
-                {photo.date.slice(0, 10)}
-              </span>
+              <span className="date"> {photo.date.slice(0, 10)}</span>
             </p>
             <p className="prgg">
               <span

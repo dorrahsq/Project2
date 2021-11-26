@@ -17,14 +17,14 @@ const Home = () => {
 
   useEffect(() => {
     getAllPosts();
-    getAllPostss(); 
+    getAllPostss();
   }, []);
 
   const getAllPostss = async () => {
     const postss = await axios.get(`${BASE_URL}/posts/`);
     setAllPosts(postss.data);
   };
-  
+
   const getAllPosts = async () => {
     const posts = await axios.get(`${BASE_URL}/posts/hash?hashtags=pink`);
 
@@ -48,40 +48,57 @@ const Home = () => {
       setPost(ele);
     }
   };
-const goExplore = ()=>{
-  navigate((`/posts`))
-}
+  const goExplore = () => {
+    navigate(`/posts`);
+  };
   const goInside = (id) => {
     navigate(`/posts/${id}`);
   };
   return (
     <div className="home">
-      {allPosts? (   <div className="anim">
-      <Carousel autoPlay={true} infiniteLoop={true} interval={2000} showStatus={false} showIndicators={false} showThumbs={false} dynamicHeight={false} showArrows={false}>
-        {allPosts.map((ele)=>{
-          return  <div >
-           {console.log(ele.img)}
-         <img  className="bgDivImg" src={ele.img} />
-         {/* <p className="legend">Legend 1</p> */}
-       </div> 
-        })}
-        <div >
-          <img  className="bgDivImg" src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-          {/* <p className="legend">Legend 1</p> */}
+      {allPosts ? (
+        <div className="anim">
+          <Carousel
+            autoPlay={true}
+            infiniteLoop={true}
+            interval={2000}
+            showStatus={false}
+            showIndicators={false}
+            showThumbs={false}
+            dynamicHeight={false}
+            showArrows={false}
+          >
+            {allPosts.map((ele) => {
+              return (
+                <div>
+                  {console.log(ele.img)}
+                  <img className="bgDivImg" src={ele.img} />
+                </div>
+              );
+            })}
+            <div>
+              <img
+                className="bgDivImg"
+                src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              />
+            </div>
+            <div>
+              <img
+                className="bgDivImg"
+                src="https://images.pexels.com/photos/9373483/pexels-photo-9373483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              />
+            </div>
+          </Carousel>
         </div>
-        <div >
-          <img className="bgDivImg" src="https://images.pexels.com/photos/9373483/pexels-photo-9373483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-         
+      ) : (
+        console.log("f")
+      )}
+      <div className="homeText">
+        <div className="main"> The best free stock photos </div>
+        <span className="shared"> Shared by creators </span>
+        <div className="exploreDiv">
+          <button onClick={goExplore}> Explore Now </button>{" "}
         </div>
-     
-      </Carousel>
-      </div>) : (console.log("f"))}
-   <div className="homeText">
-      <div className="main"> The best free stock photos </div>
-      <span className="shared"> Shared by creators </span>
-      <div className="exploreDiv">
-        <button onClick={goExplore}> Explore Now </button>{" "}
-      </div>
       </div>
 
       {/* <div className="bgDiv">

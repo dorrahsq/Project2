@@ -111,6 +111,9 @@
   right: 350px;
   font-weight: 100;
   z-index: 2;
+  padding-left: 700px;
+  padding-bottom: 450px;
+  /* background-color: rgba(128, 128, 128, 0.055); */
 }
 
 .downloadIcno:hover  {
