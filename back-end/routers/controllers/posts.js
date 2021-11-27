@@ -85,7 +85,7 @@ const getUserPosts = (req, res) => {
     .populate("postedBy")
     .where("postedBy")
     .equals(postedBy)
-    .sort({ date: 1 })
+    .sort({ date: -1 })
     .exec(function (err, posts) {
       if (err) return handleError(err);
       res.json(posts);
