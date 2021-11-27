@@ -42,8 +42,8 @@ const OtherProfile = () => {
               <div className="borderImg">
                 <img className="othersImg" src={user.img} />
               </div>
-              <h3 className="name"> {user.username} </h3>
-              <p className="bio">{user.Bio}</p>
+              <h3 className="name2"> {user.username} </h3>
+              <p className="bio2">{user.Bio}</p>
             </div>
           </>
         ) : (

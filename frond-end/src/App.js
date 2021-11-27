@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
+import AboutUs from "./components/aboutus";
 
 import Header from "./components/header";
 // import Photos from "./components/home";
@@ -29,9 +30,8 @@ function App() {
             <Route exact path="/mylikes" element={<Likes />} />
             <Route exact path="/posts/:id" element={<Photo />} />
             <Route exact path="/profile/:id" element={<OtherProfile />} />
+            <Route exact path="/aboutUs" element={<AboutUs />} />
           </Routes>
-
-
         </>
       ) : (
         <Routes>

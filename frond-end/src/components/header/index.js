@@ -22,7 +22,7 @@ const Header = () => {
             FRAME IT
           </li> */}
           <li className="lie1">
-            <Link className="link" to="/" id="framIt">
+            <Link className="link" to="/aboutUs" id="framIt">
               <SiGooglephotos />
             </Link>
           </li>

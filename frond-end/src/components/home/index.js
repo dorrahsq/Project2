@@ -14,7 +14,7 @@ const Home = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [maxx, setMaxx] = useState();
   const [moreLikesPostt, setMoreLikesPostt] = useState("");
-
+  const [onePost, setOnePost] = useState();
   useEffect(() => {
     getAllPosts();
     getAllPostss();
@@ -23,6 +23,11 @@ const Home = () => {
   const getAllPostss = async () => {
     const postss = await axios.get(`${BASE_URL}/posts/`);
     setAllPosts(postss.data);
+    const onePost = postss.data.find((ele) => {
+      return ele._id == "61a1d58d1beb96e90894030e";
+    });
+    console.log(onePost);
+    setOnePost(onePost);
   };
 
   const getAllPosts = async () => {
@@ -71,7 +76,6 @@ const Home = () => {
             {allPosts.map((ele) => {
               return (
                 <div>
-                  {console.log(ele.img)}
                   <img className="bgDivImg" src={ele.img} />
                 </div>
               );
@@ -109,24 +113,23 @@ const Home = () => {
       {posts ? (
         <>
           <div class="line"></div>
-          <div className="winner">
-            Winner post in this week <span className="hash">#PINK</span>
-          </div>
-
+          <Fade>
+            <div className="winner">
+              <i>
+                Winner posts in this week <span className="hash"> #PINK</span>
+              </i>
+            </div>
+          </Fade>
           {/* <Fade> */}
 
           <div className="bg">
-            why?
+            <span class="whySpan"> Most liked photo </span>
             <Fade>
               <span className="why">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque vitae iaculis leo. Cras interdum, risus id tempor
-                ullamcorper, ipsum leo interdum ligula, ut scelerisque enim
-                lectus ac dolor. Suspendisse elit lectus, vehicula non commodo
-                sed, porttitor vitae mi. Aenean odio ipsum, hendrerit ut
-                eleifend ac, mollis sed dui. In hac habitasse platea dictumst.
-                Proin at porta erat. Curabitur a risus nec odio sollicitudin
-                consectetur. Pellentesque posuere tellus et auctor elementum{" "}
+                We selected this post based on the most likes according to the
+                hashtag of the week, which is #pink. Moreover, the win doesn't
+                have any evaluation, just the highest likes. There will be a new
+                hashtag weekly, so be here and get excited!
               </span>
             </Fade>
           </div>
@@ -140,7 +143,37 @@ const Home = () => {
               />
             </div>
           </Fade>
-          {/* </Fade> */}
+
+          {onePost && (
+            <>
+              <div className="bg2">
+                <span class="whySpan2">
+                  {" "}
+                  Professional photographers choice{" "}
+                </span>
+                <Fade>
+                  <span className="why2">
+                    green is restful and calming, while pink is soft and dreamy,
+                    This combination has become incredibly great, These colors
+                    are complementary, sitting opposite each other on the wheel,
+                    therefore the high contrast creates a vibrant look. Green is
+                    also bringing a sense of visual balance and, as a result, a
+                    soothing and relaxing influence.
+                  </span>
+                </Fade>
+              </div>
+              <Fade>
+                <div className="imgContener2">
+                  <img
+                    src={onePost.img}
+                    onClick={() => {
+                      goInside(onePost._id);
+                    }}
+                  />
+                </div>
+              </Fade>
+            </>
+          )}
         </>
       ) : (
         <h1>loading ...</h1>

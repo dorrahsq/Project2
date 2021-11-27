@@ -16,7 +16,7 @@
 
 #logOut {
   display: inline-block;
-  margin-left: 50%;
+  margin-left: 51%;
 }
 #logOut:hover {
   cursor: pointer;
@@ -24,9 +24,11 @@
 
 .link {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.788);
+  color: rgba(0, 0, 0, 0.76);
   font-size: 23px;
   font-family: "Dosis", sans-serif;
+  /* font-size: 20px; */
+  /* font-weight:lighter; */
 }
 
 .link:hover {
