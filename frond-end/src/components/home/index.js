@@ -147,10 +147,7 @@ const Home = () => {
           {onePost && (
             <>
               <div className="bg2">
-                <span class="whySpan2">
-                  {" "}
-                  Professional photographers choice{" "}
-                </span>
+                <span class="whySpan2"> Professional choice </span>
                 <Fade>
                   <span className="why2">
                     green is restful and calming, while pink is soft and dreamy,

@@ -16,7 +16,7 @@ const UseStorageProfile = (props) => {
     });
   }, []);
 
-  const postIt = () => {
+  const changeProfile = () => {
     const obj = {
       _id: props.id,
       img: url,
@@ -30,7 +30,11 @@ const UseStorageProfile = (props) => {
     window.location.reload(false);
   };
 
-  return <>{url ? postIt() : <h4>Loading ...</h4>}</>
+  return (
+    <>
+      {url ? changeProfile() : <h4 className="loadingProfile">Loading ...</h4>}
+    </>
+  );
 };
 
 export default UseStorageProfile;

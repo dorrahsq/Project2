@@ -14,3 +14,7 @@
   transform: scale(1.25) perspective(1px);
   cursor: pointer;
 }
+
+.loadingProfile {
+  margin: 10px;
+}

@@ -129,10 +129,10 @@ const Profile = () => {
                 <img className="othersImg" src={userProfile.img} />
               </div>
 
-              <label htmlFor="icon-button-file">
+              <label htmlFor="icon-button-filee">
                 <Input
                   accept="image/*"
-                  id="icon-button-file"
+                  id="icon-button-filee"
                   type="file"
                   onChange={(e) => {
                     /////////
