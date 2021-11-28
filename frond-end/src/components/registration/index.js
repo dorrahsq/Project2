@@ -47,7 +47,7 @@ const SignUp = () => {
 
       <div className="describeItemS">
         <div className="signUpInput">
-          <span className="sign"> Sign Up </span>
+          <span className="sign"> Sign up </span>
 
           <input
             type="text"
@@ -78,7 +78,7 @@ const SignUp = () => {
               });
               if (found) {
                 console.log(found);
-                <p className="accountText">
+                <p id="accountTextt">
                   {setMessage(
                     "This email already have an account! log in or change your email"
                   )}
@@ -92,9 +92,10 @@ const SignUp = () => {
           </button>
         </div>
         <div className="already">
-          already have an account? <Link to="/login">log in </Link>
+          Already have an account? <Link to="/login">Log in </Link>
         </div>
-        {message}
+        <p id="accountTextt"> 
+        {message} </p>
       </div>
     </>
   );

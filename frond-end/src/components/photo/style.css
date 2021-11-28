@@ -53,7 +53,7 @@
   color: rgba(128, 128, 128, 0.644);
   display: inline-block;
   position: absolute;
-  font-family: monospace;
+  font-family:monospace;
   font-size: 18px;
 }
 
@@ -102,7 +102,8 @@
   cursor: pointer;
 }
 
-.downloadIcno {
+
+.downloadIcno{
   opacity: 0;
   font-size: 40px;
   position: absolute;
@@ -115,6 +116,6 @@
   /* background-color: rgba(128, 128, 128, 0.055); */
 }
 
-.downloadIcno:hover {
-  opacity: 1;
+.downloadIcno:hover  {
+ opacity: 1;
 }

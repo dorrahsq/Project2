@@ -110,7 +110,9 @@ const Photo = () => {
     <>
       {photo ? (
         <>
-          {<img className="imgg" src={photo.postedBy.img} />}
+        
+        <img className="imgg" src={photo.postedBy.img} />
+
           <div className="photoContener">
             <p className="postedBy">
               <span
@@ -119,7 +121,7 @@ const Photo = () => {
                 }}
               >
                 {photo.postedBy.username}
-              </span>{" "}
+              </span>
               <span className="hovver">
                 <span
                   className="clickDown"
@@ -138,7 +140,7 @@ const Photo = () => {
                 </span>
               </span>
             </p>
-            <img src={photo.img} alt="" />
+            <img className="imggg" src={photo.img} alt="" />
             <p className="left">
               <button
                 className="heartBtn"
